@@ -1,0 +1,66 @@
+<div class="page-header">
+  <h1>Cidades</h1>
+</div>
+
+<div class="table-responsive">
+  <table class="table table-striped table-hover">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Cidade</th>
+        <th>Estado</th>
+        <th class="text-center"><u>Ações</u></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td>Blumenau</td>
+        <td>Santa Catarina</td>
+        <td class="text-center">
+          <button type="button" class="btn btn-link" title="Previsão do tempo para a cidade" (click)="previsaoTempo(cidade.id)"><i class="glyphicon glyphicon-cloud"></i></button>
+          <button type="button" class="btn btn-link" title="Editar cidade" (click)="editar(cidade.id)"><i class="glyphicon glyphicon-pencil"></i></button>
+          <button type="button" class="btn btn-link" title="Excluir cidade" (click)="excluir(cidade)"><i class="glyphicon glyphicon-trash"></i></button>
+        </td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>Gaspar</td>
+        <td>Santa Catarina</td>
+        <td class="text-center">
+          <button type="button" class="btn btn-link" title="Previsão do tempo para a cidade" (click)="previsaoTempo(cidade.id)"><i class="glyphicon glyphicon-cloud"></i></button>
+          <button type="button" class="btn btn-link" title="Editar cidade" (click)="editar(cidade.id)"><i class="glyphicon glyphicon-pencil"></i></button>
+          <button type="button" class="btn btn-link" title="Excluir cidade" (click)="excluir(cidade)"><i class="glyphicon glyphicon-trash"></i></button>
+        </td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>Timbó</td>
+        <td>Santa Catarina</td>
+        <td class="text-center">
+          <button type="button" class="btn btn-link" title="Previsão do tempo para a cidade" (click)="previsaoTempo(cidade.id)"><i class="glyphicon glyphicon-cloud"></i></button>
+          <button type="button" class="btn btn-link" title="Editar cidade" (click)="editar(cidade.id)"><i class="glyphicon glyphicon-pencil"></i></button>
+          <button type="button" class="btn btn-link" title="Excluir cidade" (click)="excluir(cidade)"><i class="glyphicon glyphicon-trash"></i></button>
+        </td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td>Florianópolis</td>
+        <td>Santa Catarina</td>
+        <td class="text-center">
+          <button type="button" class="btn btn-link" title="Previsão do tempo para a cidade" (click)="previsaoTempo(cidade.id)"><i class="glyphicon glyphicon-cloud"></i></button>
+          <button type="button" class="btn btn-link" title="Editar cidade" (click)="editar(cidade.id)"><i class="glyphicon glyphicon-pencil"></i></button>
+          <button type="button" class="btn btn-link" title="Excluir cidade" (click)="excluir(cidade)"><i class="glyphicon glyphicon-trash"></i></button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="container">
+  <div class="row">
+    <a class="btn btn-primary col-xs-12 col-sm-3 col-md-2" [routerLink]="['/cidade/editar']">
+      <i class="glyphicon glyphicon-plus"></i> Nova Cidade
+    </a>
+  </div>
+</div>
