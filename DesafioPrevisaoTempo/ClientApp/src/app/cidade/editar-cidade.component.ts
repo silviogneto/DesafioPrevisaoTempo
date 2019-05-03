@@ -15,7 +15,9 @@ export class EditarCidadeComponent {
   private cidade: ICidade = {
     id: 0,
     nome: '',
-    estado: ''
+    estado: '',
+    pais: '',
+    apiId: 0
   };
 
   constructor(private service: CidadeService, private route: ActivatedRoute, private router: Router) { }

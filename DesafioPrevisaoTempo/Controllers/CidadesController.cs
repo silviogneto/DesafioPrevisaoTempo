@@ -18,25 +18,36 @@ namespace DesafioPrevisaoTempo.Controllers
             {
                 Id = 1,
                 Nome = "Blumenau",
-                Estado = "Santa Catarina"
+                Estado = "Santa Catarina",
+                Pais = "BR"
             },
             new Cidade
             {
                 Id = 2,
                 Nome = "Gaspar",
-                Estado = "Santa Catarina"
+                Estado = "Santa Catarina",
+                Pais = "BR"
             },
             new Cidade
             {
                 Id = 3,
                 Nome = "Timbó",
-                Estado = "Santa Catarina"
+                Estado = "Santa Catarina",
+                Pais = "BR"
             },
             new Cidade
             {
                 Id = 4,
                 Nome = "Florianópolis",
-                Estado = "Santa Catarina"
+                Estado = "Santa Catarina",
+                Pais = "BR"
+            },
+            new Cidade
+            {
+                Id = 5,
+                Nome = "Recife",
+                Estado = "Santa Catarina",
+                Pais = "BR"
             }
         };
 
