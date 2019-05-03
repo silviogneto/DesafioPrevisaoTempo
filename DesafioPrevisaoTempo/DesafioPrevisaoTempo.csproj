@@ -16,6 +16,7 @@
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.1.2" PrivateAssets="All" />
     <PackageReference Include="Microsoft.AspNetCore.SpaServices.Extensions" Version="2.1.1" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.9" />
   </ItemGroup>
 
   <ItemGroup>
@@ -34,11 +35,19 @@
   <ItemGroup>
     <None Remove="ClientApp\src\app\cidade\editar-cidade.component.ts" />
     <None Remove="ClientApp\src\app\cidade\lista-cidade.component.ts" />
+    <None Remove="ClientApp\src\app\cidade\previsao-tempo.component.ts" />
+    <None Remove="ClientApp\src\models\ICidade.ts" />
+    <None Remove="ClientApp\src\services\cidade.service.ts" />
+    <None Remove="ClientApp\src\services\previsao.service.ts" />
   </ItemGroup>
 
   <ItemGroup>
     <TypeScriptCompile Include="ClientApp\src\app\cidade\editar-cidade.component.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\cidade\lista-cidade.component.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\cidade\previsao-tempo.component.ts" />
+    <TypeScriptCompile Include="ClientApp\src\models\ICidade.ts" />
+    <TypeScriptCompile Include="ClientApp\src\services\cidade.service.ts" />
+    <TypeScriptCompile Include="ClientApp\src\services\previsao.service.ts" />
   </ItemGroup>
 
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">

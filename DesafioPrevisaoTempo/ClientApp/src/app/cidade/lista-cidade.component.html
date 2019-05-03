@@ -13,40 +13,10 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td>1</td>
-        <td>Blumenau</td>
-        <td>Santa Catarina</td>
-        <td class="text-center">
-          <button type="button" class="btn btn-link" title="Previsão do tempo para a cidade" (click)="previsaoTempo(cidade.id)"><i class="glyphicon glyphicon-cloud"></i></button>
-          <button type="button" class="btn btn-link" title="Editar cidade" (click)="editar(cidade.id)"><i class="glyphicon glyphicon-pencil"></i></button>
-          <button type="button" class="btn btn-link" title="Excluir cidade" (click)="excluir(cidade)"><i class="glyphicon glyphicon-trash"></i></button>
-        </td>
-      </tr>
-      <tr>
-        <td>2</td>
-        <td>Gaspar</td>
-        <td>Santa Catarina</td>
-        <td class="text-center">
-          <button type="button" class="btn btn-link" title="Previsão do tempo para a cidade" (click)="previsaoTempo(cidade.id)"><i class="glyphicon glyphicon-cloud"></i></button>
-          <button type="button" class="btn btn-link" title="Editar cidade" (click)="editar(cidade.id)"><i class="glyphicon glyphicon-pencil"></i></button>
-          <button type="button" class="btn btn-link" title="Excluir cidade" (click)="excluir(cidade)"><i class="glyphicon glyphicon-trash"></i></button>
-        </td>
-      </tr>
-      <tr>
-        <td>3</td>
-        <td>Timbó</td>
-        <td>Santa Catarina</td>
-        <td class="text-center">
-          <button type="button" class="btn btn-link" title="Previsão do tempo para a cidade" (click)="previsaoTempo(cidade.id)"><i class="glyphicon glyphicon-cloud"></i></button>
-          <button type="button" class="btn btn-link" title="Editar cidade" (click)="editar(cidade.id)"><i class="glyphicon glyphicon-pencil"></i></button>
-          <button type="button" class="btn btn-link" title="Excluir cidade" (click)="excluir(cidade)"><i class="glyphicon glyphicon-trash"></i></button>
-        </td>
-      </tr>
-      <tr>
-        <td>4</td>
-        <td>Florianópolis</td>
-        <td>Santa Catarina</td>
+      <tr *ngFor="let cidade of cidades">
+        <td>{{ cidade.id }}</td>
+        <td>{{ cidade.nome }}</td>
+        <td>{{ cidade.estado }}</td>
         <td class="text-center">
           <button type="button" class="btn btn-link" title="Previsão do tempo para a cidade" (click)="previsaoTempo(cidade.id)"><i class="glyphicon glyphicon-cloud"></i></button>
           <button type="button" class="btn btn-link" title="Editar cidade" (click)="editar(cidade.id)"><i class="glyphicon glyphicon-pencil"></i></button>
@@ -59,7 +29,7 @@
 
 <div class="container">
   <div class="row">
-    <a class="btn btn-primary col-xs-12 col-sm-3 col-md-2" [routerLink]="['/cidade/editar']">
+    <a class="btn btn-primary col-xs-12 col-sm-3 col-md-2" [routerLink]="['/cidades/novo']">
       <i class="glyphicon glyphicon-plus"></i> Nova Cidade
     </a>
   </div>

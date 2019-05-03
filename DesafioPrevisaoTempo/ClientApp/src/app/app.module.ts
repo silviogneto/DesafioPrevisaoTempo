@@ -7,12 +7,14 @@ import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { ListaCidadeComponent } from './cidade/lista-cidade.component';
 import { EditarCidadeComponent } from './cidade/editar-cidade.component';
+import { PrevisaoTempoComponent } from './cidade/previsao-tempo.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ListaCidadeComponent,
-    EditarCidadeComponent
+    EditarCidadeComponent,
+    PrevisaoTempoComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -20,8 +22,9 @@ import { EditarCidadeComponent } from './cidade/editar-cidade.component';
     FormsModule,
     RouterModule.forRoot([
       { path: '', component: ListaCidadeComponent, pathMatch: 'full' },
-      { path: 'cidade/editar', component: EditarCidadeComponent },
-      { path: 'cidade/editar/:id', component: EditarCidadeComponent }
+      { path: 'cidades/novo', component: EditarCidadeComponent },
+      { path: 'cidades/:id/editar', component: EditarCidadeComponent },
+      { path: 'cidades/:id/previsaoTempo', component: PrevisaoTempoComponent }
     ])
   ],
   providers: [],
