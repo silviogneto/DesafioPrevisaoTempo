@@ -3,7 +3,6 @@ import { CidadeService } from "../../services/cidade.service";
 import { ICidade } from "../../models/ICidade";
 import { ActivatedRoute, Router } from "@angular/router";
 import { Observable } from "rxjs/Observable";
-import { error } from "protractor";
 
 @Component({
   selector: 'editar-cidade',

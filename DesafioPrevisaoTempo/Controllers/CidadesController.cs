@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using DesafioPrevisaoTempo.Models;
-using Microsoft.AspNetCore.Http;
+using DesafioPrevisaoTempo.Models.DAL.Repositorios;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DesafioPrevisaoTempo.Controllers
@@ -12,75 +9,50 @@ namespace DesafioPrevisaoTempo.Controllers
     [ApiController]
     public class CidadesController : ControllerBase
     {
-        private readonly IEnumerable<Cidade> _cidades = new List<Cidade>
-        {
-            new Cidade
-            {
-                Id = 1,
-                Nome = "Blumenau",
-                Estado = "Santa Catarina",
-                Pais = "BR"
-            },
-            new Cidade
-            {
-                Id = 2,
-                Nome = "Gaspar",
-                Estado = "Santa Catarina",
-                Pais = "BR"
-            },
-            new Cidade
-            {
-                Id = 3,
-                Nome = "Timbó",
-                Estado = "Santa Catarina",
-                Pais = "BR"
-            },
-            new Cidade
-            {
-                Id = 4,
-                Nome = "Florianópolis",
-                Estado = "Santa Catarina",
-                Pais = "BR"
-            },
-            new Cidade
-            {
-                Id = 5,
-                Nome = "Recife",
-                Estado = "Santa Catarina",
-                Pais = "BR"
-            }
-        };
+        private readonly ICidadeRepositorio _cidadeRepositorio;
 
-        // GET: api/Cidade
+        public CidadesController(ICidadeRepositorio cidadeRepositorio)
+        {
+            _cidadeRepositorio = cidadeRepositorio;
+        }
+
         [HttpGet]
         public IEnumerable<Cidade> Get()
         {
-            return _cidades;
+            return _cidadeRepositorio.Get();
         }
 
-        // GET: api/Cidade/5
         [HttpGet("{id}", Name = "Get")]
         public Cidade Get(int id)
         {
-            return _cidades.First(x => x.Id == id);
+            return _cidadeRepositorio.Get(id);
         }
 
-        // POST: api/Cidade
         [HttpPost]
         public void Post([FromBody] Cidade value)
         {
+            _cidadeRepositorio.Add(value);
         }
 
-        // PUT: api/Cidade/5
         [HttpPut("{id}")]
         public void Put(int id, [FromBody] Cidade value)
         {
+            var cidade = _cidadeRepositorio.Get(id);
+            if (cidade != null)
+            {
+                cidade.Nome = value.Nome;
+                cidade.Estado = value.Estado;
+                cidade.Pais = value.Pais;
+                cidade.ApiId = value.ApiId;
+
+                _cidadeRepositorio.Update(cidade);
+            }
         }
 
-        // DELETE: api/ApiWithActions/5
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
+            _cidadeRepositorio.Delete(id);
         }
     }
 }

@@ -36,7 +36,9 @@ export interface IForecastItem {
   clouds: IForecastItemCloud;
   wind: IForecastItemWind;
   sys: IForecastItemSys;
-  dt_txt: Date;
+  dt_txt: string;
+  day: string;
+  month: string;
 }
 
 export interface IForecastCityCoord {

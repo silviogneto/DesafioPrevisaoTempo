@@ -14,6 +14,10 @@ export class ListaCidadeComponent {
   constructor(private service: CidadeService, private router: Router) { }
 
   ngOnInit() {
+    this.getAll();
+  }
+
+  getAll() {
     this.service.getAll().subscribe(
       cidades => this.cidades = cidades,
       error => console.log(error)
@@ -24,9 +28,10 @@ export class ListaCidadeComponent {
     this.router.navigate([`/cidades/${id}/editar`]);
   }
 
-  excluir(cidade) {
+  excluir(cidade: ICidade) {
     if (confirm(`Excluir a cidade '${cidade.nome}'?`)) {
-      this.service.excluir(cidade);
+      console.log('é pra excluir');
+      this.service.excluir(cidade.id).subscribe(() => this.getAll(), error => console.log(error));
     }
   }
 

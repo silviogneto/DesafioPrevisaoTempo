@@ -8,16 +8,11 @@ import { ICidade } from "../../models/ICidade";
 @Component({
   selector: 'previsao-tempo-view',
   templateUrl: './previsao-tempo.component.html',
+  styleUrls: ['./previsao-tempo.component.css'],
   providers: [PrevisaoTempoService, CidadeService]
 })
 export class PrevisaoTempoComponent {
-  public cidade: ICidade = {
-    id: 0,
-    nome: '',
-    estado: '',
-    pais: '',
-    apiId: 0
-  };
+  public nomeCidade: string = '';
   public previsaoItens: IForecastItem[] = [];
 
   constructor(private service: PrevisaoTempoService, private cidadeService: CidadeService, private route: ActivatedRoute, private router: Router) {
@@ -28,13 +23,16 @@ export class PrevisaoTempoComponent {
       if (p['id']) {
         this.cidadeService.getById(p['id']).subscribe(
           cidade => {
-            this.cidade = cidade;
+            this.nomeCidade = cidade.nome;
 
             this.service.getForecastByLocation(cidade).subscribe(
               forecast => {
                 // utiliza apenas a primeira hora de cada dia
                 for (let item of forecast.list) {
-                  if (item.dt_txt.getHours() === 0) {
+                  let dt = new Date(item.dt_txt);
+                  if (dt.getHours() === 0) {
+                    item.day = `0${dt.getDate()}`.slice(-2);
+                    item.month = `0${dt.getMonth()}`.slice(-2);
                     this.previsaoItens.push(item);
                   }
                 }
